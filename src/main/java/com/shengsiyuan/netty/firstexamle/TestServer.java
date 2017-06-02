@@ -14,8 +14,7 @@ public class TestServer {
     public static void main(String[] args) throws Exception{
         EventLoopGroup bossGroup = new NioEventLoopGroup();//接收客户端连接交给workerGroup处理
         EventLoopGroup workerGroup = new NioEventLoopGroup();//处理客户端连接
-        try{
-            //ServerBootstrap 服务启动类
+        try{       //ServerBootstrap 服务启动类
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup,workerGroup).
                     channel(NioServerSocketChannel.class).childHandler(new TestServerInitializer());
@@ -25,7 +24,5 @@ public class TestServer {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
-
     }
-
 }
