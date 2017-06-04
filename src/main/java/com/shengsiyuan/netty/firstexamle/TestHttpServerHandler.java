@@ -12,7 +12,7 @@ import java.net.URI;
 /**
  * Created by yinhao on 2017/6/2.
  */
-public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject>{
+public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject>{//泛型是传输数据的类型
 
 
 
