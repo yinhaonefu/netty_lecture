@@ -21,4 +21,9 @@ public class MySocketClienttHandler extends SimpleChannelInboundHandler<String> 
         cause.printStackTrace();
         ctx.close();
     }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush("come from client request");
+    }
 }
