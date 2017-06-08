@@ -25,6 +25,6 @@ public class WebSocketChanneInitializer extends ChannelInitializer<SocketChannel
         //WebSocket协议请求处理器
         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
         //自定义处理器
-        pipeline.addLast(null);
+        pipeline.addLast(new TextWebSocketFrameHandler());
     }
 }

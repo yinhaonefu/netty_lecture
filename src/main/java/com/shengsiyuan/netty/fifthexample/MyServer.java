@@ -20,7 +20,7 @@ public class MyServer {
             serverBootstrap.group(bossGroup,workerGroup).
                     channel(NioServerSocketChannel.class).
                     handler(new LoggingHandler(LogLevel.INFO)).//handler针对bossGroup
-                    childHandler(null);//childHandler针对workerGroup
+                    childHandler(new WebSocketChanneInitializer());//childHandler针对workerGroup
             ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         }finally {
