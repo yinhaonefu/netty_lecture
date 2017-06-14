@@ -12,4 +12,4 @@ message Student{
     optional string address = 3;
 }
 
-//命令行执行 protoc src/main/java src/protobuf/Student.proto 生成源代码到src/main/java
+//命令行执行 protoc --java_out=src/main/java src/protobuf/Student.proto 生成源代码到src/main/java

@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package com.shengsiyuan.protobuf;
+
+option optimize_for = SPEED;
+option java_package = "com.shengsiyuan.netty.sixthexample";
+option java_outer_classname = "MyDataInfo";
+
+message Person{
+    required string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+//命令行执行 protoc --java_out=src/main/java src/protobuf/Person.proto 生成源代码到src/main/java
