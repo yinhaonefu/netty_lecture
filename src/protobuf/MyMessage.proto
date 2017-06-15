@@ -1,0 +1,48 @@
+syntax = "proto2";
+
+package com.shengsiyuan.protobuf;
+
+option optimize_for = SPEED;
+option java_package = "com.shengsiyuan.netty.sixthexample";
+option java_outer_classname = "MyDataInfo";
+
+
+//实现多消息类型，通过枚举来判断传递的哪种消息类型
+message MyMessage{
+
+    enum DataType{
+        PersonType = 1;
+        DogType = 2;
+        CatType = 3;
+    }
+
+    required DataType data_type = 1;
+
+    //oneof 同一时刻只会有一个属性被设置，设置后会清除其他属性值
+    //参考 https://developers.google.com/protocol-buffers/docs/proto#oneof
+    oneof dataBody{
+        Person person = 2;
+        Dog dog = 3;
+        Cat cat = 4;
+    }
+}
+
+message Person{
+    optional string name = 1;
+    optional int32 age = 2;
+    optional string address = 3;
+}
+
+message Dog{
+    optional string name = 1;
+    optional int32 age = 2;
+}
+
+message Cat{
+    optional string name = 1;
+    optional string city = 2;
+}
+
+
+
+//命令行执行 protoc --java_out=src/main/java src/protobuf/MyMessage.proto 生成源代码到src/main/java

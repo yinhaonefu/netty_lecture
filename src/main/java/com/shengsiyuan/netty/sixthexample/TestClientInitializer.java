@@ -21,7 +21,7 @@ public class TestClientInitializer extends ChannelInitializer<SocketChannel>{
 
         pipeline.addLast(new ProtobufVarint32FrameDecoder());
         //针对生成的MyDataInfo.Person进行解码的处理器
-        pipeline.addLast(new ProtobufDecoder(MyDataInfo.Person.getDefaultInstance()));
+        pipeline.addLast(new ProtobufDecoder(MyDataInfo.MyMessage.getDefaultInstance()));
 
         pipeline.addLast(new ProtobufVarint32LengthFieldPrepender());
 
