@@ -7,7 +7,14 @@ option java_outer_classname = "StudentProto";
 option java_multiple_files = true;
 
 service StudentService{
+    //第一种通信方式，发送一个简单请求，返回一个简单响应
     rpc GetRealNameByUsername(MyRequest) returns (MyResponse){}
+    //第二种通信方式，发送一个简单请求，返回一个流式响应
+    rpc getStudentByAge(StudentRequest) returns (stream StudentResponse){}
+    //第三种通信方式，发送一个流式请求，返回一个简单响应
+    rpc getStudentWrapper(stream StudentRequest) returns (StudentResponseList){}
+    //第四种通信方式，发送一个流式请求，返回一个流式响应
+    rpc BiTalk(stream StreamRequest) returns (stream StreamResponse){}
 }
 
 message MyRequest{
@@ -18,3 +25,24 @@ message MyResponse{
     string realname = 2;
 }
 
+message StudentRequest{
+    int32 age = 1;
+}
+
+message StudentResponse{
+    string name = 1;
+    int32 age = 2;
+    string city = 3;
+}
+
+message StudentResponseList{
+    repeated StudentResponse studentResponse = 1;
+}
+
+message StreamRequest{
+    string request_info = 1;
+}
+
+message StreamResponse{
+    string response_info =1;
+}
