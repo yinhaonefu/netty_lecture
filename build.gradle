@@ -43,9 +43,12 @@ protobuf {
             artifact = 'io.grpc:protoc-gen-grpc-java:1.4.0'
         }
     }
+    generateProtoTasks.generatedFilesBaseDir = 'src'//生成的源代码直接到src目录下
     generateProtoTasks {
         all()*.plugins {
-            grpc {}
+            grpc {
+                outputSubDir = 'java'//grpc生成的桩代码到src/java目录下
+            }
         }
     }
 }
