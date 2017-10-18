@@ -24,6 +24,7 @@ public class MySocketClienttHandler extends SimpleChannelInboundHandler<String> 
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        //连接建立好后，客户端先主动发起请求
         ctx.writeAndFlush("come from client request");
     }
 }

@@ -46,7 +46,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH,content.readableBytes());
             ctx.writeAndFlush(response);
 
-            ctx.channel().close();//服务器主动关闭连接
+            ctx.channel().close();//服务器主动关闭连接 可以判断是Http1.0还是http1.1来进行连接关闭的时间选择
         }
     }
 
