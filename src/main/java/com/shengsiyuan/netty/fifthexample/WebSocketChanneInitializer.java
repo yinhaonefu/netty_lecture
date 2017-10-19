@@ -20,9 +20,10 @@ public class WebSocketChanneInitializer extends ChannelInitializer<SocketChannel
         pipeline.addLast(new HttpServerCodec());
 
         pipeline.addLast(new ChunkedWriteHandler());
-        //对消息进行聚合的处理器
+        //对消息进行聚合的处理器，如果请求消息按给定长度被切割成多个段，会将几个段聚合
         pipeline.addLast(new HttpObjectAggregator(8192));
-        //WebSocket协议请求处理器
+        //WebSocket协议请求处理器 ws://localhost:9999/ws 参数里指定的是后一个ws路径，第一个ws是固定的
+        //查看test.html客户端请求代码
         pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
         //自定义处理器
         pipeline.addLast(new TextWebSocketFrameHandler());
