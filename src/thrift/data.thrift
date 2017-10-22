@@ -24,7 +24,8 @@ service PersonService{
     void savePerson(1: required Person person) throws (1: DataException dateException)
 }
 
-// 执行 thrift.exe --gen java src/thrift/data.thrift 编译生成代码
+// windows开发环境执行 thrift.exe --gen java src/thrift/data.thrift 编译生成代码
+// mac中可以通过homebrew安装thrift编译器 brew install thrift
 // 生成的源代码放到src/main/java/下 建议使用git subtree管理更新thrift生成的源代码，而不是每次生成复制粘贴
 // thrift.exe已下载并放到项目netty_lecture根目录下
 // 下载链接http://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.exe
