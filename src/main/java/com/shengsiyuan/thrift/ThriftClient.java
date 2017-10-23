@@ -13,7 +13,9 @@ import thrift.generated.PersonService;
  */
 public class ThriftClient {
     public static void main(String[] args) {
+        //传输同服务端
         TTransport transport = new TFramedTransport(new TSocket("127.0.0.1",8899),600);
+        //协议同服务端
         TProtocol protocol = new TCompactProtocol(transport);
         PersonService.Client client = new PersonService.Client(protocol);
 

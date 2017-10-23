@@ -17,14 +17,14 @@ public class ThriftServer {
         THsHaServer.Args arg = new THsHaServer.Args(socket).minWorkerThreads(2).maxWorkerThreads(4);
         PersonService.Processor<PersonServiceImpl> processor = new PersonService.Processor<>(new PersonServiceImpl());
 
-        arg.protocolFactory(new TCompactProtocol.Factory());
-        arg.transportFactory(new TFramedTransport.Factory());
+        arg.protocolFactory(new TCompactProtocol.Factory());//协议
+        arg.transportFactory(new TFramedTransport.Factory());//传输
         arg.processorFactory(new TProcessorFactory(processor));
 
-        TServer tServer = new THsHaServer(arg);
+        TServer tServer = new THsHaServer(arg);//半同步半异步服务
 
         System.out.println("Thrift server started");
 
-        tServer.serve();//异步非阻塞 死循环
+        tServer.serve();//死循环
     }
 }
