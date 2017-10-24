@@ -55,6 +55,6 @@ public class GrpcServer {
     public static void main(String[] args) throws IOException, InterruptedException {
         final GrpcServer server = new GrpcServer();
         server.start();
-        server.blockUntilShutdown();
+        server.blockUntilShutdown();//没有这行代码服务器启动后会直接退出
     }
 }
