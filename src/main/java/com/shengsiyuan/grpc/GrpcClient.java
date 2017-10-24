@@ -34,6 +34,7 @@ public class GrpcClient {
 //        System.out.println("--------------------------------");
 //
 //        //流式请求简单响应
+          //第一步 构造方法参数
 //        StreamObserver<StudentResponseList> studentResponseListStreamObserver = new StreamObserver<StudentResponseList>() {
 //            @Override
 //            public void onNext(StudentResponseList value) {
@@ -53,7 +54,10 @@ public class GrpcClient {
 //                System.out.println("completed");
 //            }
 //        };
-//
+
+
+//        //如果客户端是以流式的方式发起请求，必须使用异步的方式nonBlockingStub
+          //第二步 调用方法，传入参数，客户端以流式方法不断发起请求
 //        StreamObserver<StudentRequest> studentRequestStreamObserver = nonBlockingStub.getStudentWrapper(studentResponseListStreamObserver);
 //        studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(20).build());
 //        studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(30).build());
@@ -61,6 +65,7 @@ public class GrpcClient {
 //        studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(50).build());
 //        studentRequestStreamObserver.onCompleted();
 //
+//        //因为是异步的请求，还没返回结果程序就执行结束了，所以在这里睡眠一下看执行输出
 //        try {
 //            Thread.sleep(5000);
 //        } catch (InterruptedException e) {
@@ -70,6 +75,7 @@ public class GrpcClient {
 //        System.out.println("--------------------------------");
 //
 //        //流式请求流式响应
+          //直接调用方法，构造参数，然后客户端发起流式请求，不断发送数据
 //        StreamObserver<StreamRequest> streamRequestStreamObserver = nonBlockingStub.biTalk(new StreamObserver<StreamResponse>() {
 //            @Override
 //            public void onNext(StreamResponse value) {
