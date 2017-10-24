@@ -47,7 +47,7 @@ protobuf {
     generateProtoTasks {
         all()*.plugins {
             grpc {
-                outputSubDir = 'java'//grpc生成的桩代码到src/java目录下
+                outputSubDir = 'java'//grpc生成的桩代码到src/main/java目录下
             }
         }
     }

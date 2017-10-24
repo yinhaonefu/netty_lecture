@@ -4,7 +4,7 @@ package com.shengsiyuan.proto;
 
 option java_package = "com.shengsiyuan.proto";
 option java_outer_classname = "StudentProto";
-option java_multiple_files = true;
+option java_multiple_files = true;//生成代码到多个文件中而不是全都放到一个文件
 
 service StudentService{
     //第一种通信方式，发送一个简单请求，返回一个简单响应
