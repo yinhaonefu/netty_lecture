@@ -19,7 +19,7 @@ import java.util.Arrays;
  * 如果自定义协议，可以将header中数据放到第一个Buffer中，将body放到第一个Buffer中，很自然的将报文各部分隔离
  *
  * 运行下面程序，然后可以通过telnet localhost 8899 或者 nc localhost 8899
- * 输入内容查看输出
+ * 输入内容查看输出，只有全部的Buffer都读满时，才会回写所有读到的内容
  */
 public class NIOTest11 {
     public static void main(String[] args)throws Exception {
