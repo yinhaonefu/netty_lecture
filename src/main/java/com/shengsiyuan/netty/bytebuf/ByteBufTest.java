@@ -12,8 +12,9 @@ public class ByteBufTest {
         for (int i = 0;i < byteBuf.capacity();i++){
             System.out.println(byteBuf.getByte(i));//readerIndex不会增加
         }
+        System.out.println("==");
         for (int i = 0;i < byteBuf.capacity();i++){
-            System.out.println(byteBuf.readByte(i));//readerIndex增加
+            System.out.println(byteBuf.readByte());//readerIndex增加
         }
     }
 }
