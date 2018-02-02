@@ -17,9 +17,9 @@ public class TestServer {
         try{       //ServerBootstrap 服务启动类
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup,workerGroup).
-                    channel(NioServerSocketChannel.class).
+                    channel(NioServerSocketChannel.class).//通过反射创建NioServerSocketChannel实例
                     childHandler(new TestServerInitializer());//handler 针对bossGroup处理 childHandler 针对workerGroup处理
-            ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();//访问http://localhost:8899
             channelFuture.channel().closeFuture().sync();
         }finally {
             bossGroup.shutdownGracefully();
