@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
  * Created by yinhao on 17/6/4.
+ * 客户端只需要一个事件循环组就可以
  */
 public class MyClient {
     public static void main(String[] args)throws Exception {

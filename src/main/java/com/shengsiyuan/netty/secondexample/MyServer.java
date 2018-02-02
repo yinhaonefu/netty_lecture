@@ -16,7 +16,7 @@ public class MyServer {
         try{       //ServerBootstrap 服务启动类
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(bossGroup,workerGroup).
-                    channel(NioServerSocketChannel.class).childHandler(new TestServerInitializer());
+                    channel(NioServerSocketChannel.class).childHandler(new TestServerInitializer());//childHandler指定的处理器针对workerGroup进行处理
             ChannelFuture channelFuture = serverBootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         }finally {

@@ -11,6 +11,8 @@ import io.netty.util.CharsetUtil;
 
 /**
  * Created by yinhao on 2017/6/4.
+ * 客户端和服务器端连接一旦建立TestServerInitializer实例就会被创建
+ * 并且initChannel方法就会被调用
  */
 public class TestServerInitializer extends ChannelInitializer<SocketChannel>{
 
