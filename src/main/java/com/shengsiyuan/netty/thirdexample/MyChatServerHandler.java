@@ -43,6 +43,8 @@ public class MyChatServerHandler extends SimpleChannelInboundHandler<String>{
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
+        System.out.println("【客户端】 - " + channel.remoteAddress() + " 加入\n");
+        //channelGroup的writeAndFlush方法会调用其中的每一个channel的writeAndFlush方法
         channelGroup.writeAndFlush("【客户端】 - " + channel.remoteAddress() + " 加入\n");
         channelGroup.add(channel);
     }
