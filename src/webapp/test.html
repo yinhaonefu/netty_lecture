@@ -13,16 +13,19 @@
 
         socket = new WebSocket("ws://localhost:8899/ws");
 
+        //客户端收到服务端返回的消息时被调用
         socket.onmessage = function (event) {
             var ta = document.getElementById('responseText');
             ta.value = ta.value + "\n" + event.data;
         }
 
+        //与服务端建立好连接后被调用
         socket.onopen = function (event) {
             var ta = document.getElementById('responseText');
             ta.value = "连接开启";
         }
 
+        //与服务端连接关闭被调用
         socket.onclose = function (event) {
             var ta = document.getElementById('responseText');
             ta.value = ta.value + "\n" + "连接关闭";
