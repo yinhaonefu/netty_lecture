@@ -39,7 +39,7 @@ public class MyChatServerHandler extends SimpleChannelInboundHandler<String>{
         System.out.println(channel.remoteAddress() + " 下线");
     }
 
-    //连接建立好回调
+    //有客户端发起连接时会执行
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
@@ -55,6 +55,7 @@ public class MyChatServerHandler extends SimpleChannelInboundHandler<String>{
         Channel channel = ctx.channel();
         channelGroup.writeAndFlush("【客户端】 - " + channel.remoteAddress() + " 离开\n");
 //        channelGroup.remove(channel);//即使不移除，netty也会自动去移除该连接
+        System.out.println(channelGroup.size());
     }
 
     @Override
