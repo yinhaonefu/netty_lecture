@@ -3,7 +3,11 @@ syntax = "proto2";
 package com.shengsiyuan.protobuf;
 
 option optimize_for = SPEED;
+//声明了java_package的话编译后就会使用java_package路径，如果没有声明会使用上方package指定的路径
+//即使声明了java_package，也需要声明package，为了避免非Java语言的路径冲突问题
 option java_package = "com.shengsiyuan.protobuf";
+//java_outer_classname是生成的一个最外层的类名称，这个类里面包含了.proto定义生成的所有的类
+//如果没有指定java_outer_classname类名，会已当前.proto文件的文件名的驼峰形式作为最外层类的名称
 option java_outer_classname = "DataInfo";
 
 message Student{
