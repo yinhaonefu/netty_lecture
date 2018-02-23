@@ -6,6 +6,7 @@ import java.nio.channels.FileChannel;
 
 /**
  * Created by yinhao on 2017/7/27.
+ * IO输出流转换成NIO将数据写到文件中
  */
 public class NIOTest3 {
     public static void main(String[] args) throws Exception {

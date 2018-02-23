@@ -6,6 +6,7 @@ import java.nio.channels.FileChannel;
 
 /**
  * Created by yinhao on 2017/7/27.
+ * IO输入流转换成NIO读取数据输出到控制台
  */
 public class NIOTest2 {
     public static void main(String[] args) throws Exception {
