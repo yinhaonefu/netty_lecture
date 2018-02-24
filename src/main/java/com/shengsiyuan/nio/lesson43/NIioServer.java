@@ -32,15 +32,16 @@ public class NIioServer {
 
         while (true){
             try {
-                selector.select();
-                Set<SelectionKey> selectionKeys = selector.selectedKeys();
+                selector.select();//阻塞等待关注的事件发生，直到关注的任一事件发生才会继续执行，返回结果是关注的事件数量
+                Set<SelectionKey> selectionKeys = selector.selectedKeys();//获取所有关注的事件
 
                 selectionKeys.forEach(selectionKey -> {
                     final SocketChannel client;
                     try {
                         if(selectionKey.isAcceptable()){
+                            //因为注册到selector上监听连接的channel是ServerSocketChannel，所以强制类型转换不会出错
                             ServerSocketChannel server = (ServerSocketChannel) selectionKey.channel();
-                            client = server.accept();
+                            client = server.accept();//获取当前连接进来客户端的channel
                             client.configureBlocking(false);
                             client.register(selector,SelectionKey.OP_READ);
 
