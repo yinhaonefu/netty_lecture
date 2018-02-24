@@ -28,7 +28,7 @@ public class NIOTest12 {
             ServerSocket serverSocket = serverSocketChannel.socket();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(ports[i]);
             serverSocket.bind(inetSocketAddress);
-            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);//将当前channel注册到selector上，监听客户端连接事件
             System.out.println("监听端口:" + ports[i]);
         }
         while (true){
