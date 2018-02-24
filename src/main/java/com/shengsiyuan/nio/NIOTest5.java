@@ -18,6 +18,7 @@ public class NIOTest5 {
         while (true){
 
             //如果把这行注释掉，观察执行效果，加深理解flip和clear方法的原理
+            //如果去掉这行代码，buffer不会还原。会不断的重复往output.txt中写入第一次读取到的内容
             buffer.clear();
 
             int read = inputChannel.read(buffer);
@@ -35,5 +36,6 @@ public class NIOTest5 {
 
         inputChannel.close();
         outputChannel.close();
+
     }
 }
