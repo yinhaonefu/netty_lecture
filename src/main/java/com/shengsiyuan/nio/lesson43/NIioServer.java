@@ -47,7 +47,6 @@ public class NIioServer {
 
                             String key = "["+ UUID.randomUUID()+"]";
                             clientMap.put(key,client);
-
                         }else if (selectionKey.isReadable()){
                             client = (SocketChannel) selectionKey.channel();
                             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
@@ -83,7 +82,7 @@ public class NIioServer {
                     }
                 });
 
-                selectionKeys.clear();//不删除之前注册的channel会引起空指针异常
+                selectionKeys.clear();//将已经使用过的channel清除，下次进行选择操作时重新获取触发事件的channel
             }catch (Exception e){
                 e.printStackTrace();
             }
