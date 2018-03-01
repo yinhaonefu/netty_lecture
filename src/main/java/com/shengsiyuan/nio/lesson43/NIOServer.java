@@ -17,7 +17,7 @@ import java.util.UUID;
  * Created by yinhao on 17/10/31.
  * 启动程序，在多个终端分别使用nc 或者telnet localhost 8899 连接 输入内容 查看输出
  */
-public class NIioServer {
+public class NIOServer {
 
     public static Map<String, SocketChannel> clientMap = new HashMap<>();
 

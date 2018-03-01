@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by yinhao on 17/10/31.
  */
-public class NioClient {
+public class NIOClient {
     public static void main(String[] args)throws Exception {
         try {
             SocketChannel socketChannel = SocketChannel.open();
