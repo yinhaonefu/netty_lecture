@@ -7,7 +7,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
 /**
- * 使用NIO方式读取客户端发送的数据
+ * 使用NIO方式读取客户端发送的数据，使用一个channel接收数据，省略了selector组件
  */
 public class NewIOServer {
     public static void main(String[] args)throws Exception {

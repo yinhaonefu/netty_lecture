@@ -6,6 +6,7 @@ import java.net.Socket;
 
 /**
  * 从客户端读取文件内容
+ * 为了测试性能只读取到就可以不做其他存储操作
  */
 public class OldIOServer {
     public static void main(String[] args)throws Exception {
