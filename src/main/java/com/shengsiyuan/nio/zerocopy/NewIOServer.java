@@ -32,7 +32,7 @@ public class NewIOServer {
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-                byteBuffer.rewind();
+                byteBuffer.rewind();//为了能不断的接收数据
             }
         }
     }
